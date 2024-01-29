@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="init">
+        <form action="">
+            <input type="text" id="team1" placeholder="Team 1" ><br><br>
+            <input type="text" id="team2" placeholder="Team 2" ><br><br>
+            <input type="text" id="numofplayers" placeholder="Number of Players" oninput="updatetext()">
+        </form>
+    </div>
+    
+    <div id="textboxcontainer"></div>
+    <style>.box{
+        margin-top: 10px;
+        color: red;
+    }
+    </style>
+
+    <script>
+       
+    
+        function updatetext() {
+           
+            document.getElementById("textboxcontainer").innerHTML = "";
+            var text = document.getElementById("numofplayers").value;
+            var team1 = document.getElementById("team1").value;
+            var team2 = document.getElementById("team2").value;
+            var button = document.createElement("BUTTON");
+            button.textContent = "submit";
+            button.setAttribute("class", "box");
+            button.addEventListener("click", function() {
+                displayname(text,team1,team2);
+            });
+
+            for (i = 1; i <= text; i++) {
+                var box = document.createElement("input");
+                box.className = "box";
+                box.placeholder = "Player " + i;
+                box.id = "p" + i;
+                
+                
+                document.getElementById("textboxcontainer").appendChild(box);
+          
+                document.getElementById("textboxcontainer").appendChild(document.createElement("br"));
+               
+            }
+        
+            document.getElementById("init").innerHTML = "";
+            document.getElementById("textboxcontainer").appendChild(button);
+            
+            
+                var Player = document.getElementById("p2").innerText;
+                arr1.push(Player);
+           
+           
+        }
+
+        function displayname(text1,team1,team2) {
+           
+            var arr1=[];
+            var arr2=[];
+            var arr3=[];
+            var arr5=[];
+            for (i=1;i<=text1;i++){
+            
+                var Player = document.getElementById("p"+i).value
+                arr1.push(Player);
+                arr2.push(i);
+                arr3.push(i);
+            }
+            document.getElementById("textboxcontainer").innerHTML = "";
+    for (i=text1;i>=1;i--){
+    var arr4 = [];
+    var a = Math.floor(Math.random()*i)
+    var b = Math.floor(Math.random()*i)
+    arr4.push(arr2[a]);
+    arr2.splice(a,1);
+    arr4.push(arr3[b]);
+    arr3.splice(b,1);
+    arr5.push(arr4);
+    arr4.pop;
+    arr4.pop
+
+         }
+         
+       for (i=0;i<text1;i++){
+     var resultname =  document.createElement("h1");
+     resultname.innerHTML = arr1[i] + " :" +team1+" "+arr5[i][0]+", "+team2+" "+arr5[i][1]; 
+     document.getElementById("textboxcontainer").appendChild(resultname)  ;
+       }
+
+        }
+    </script>
+</body>
+</html>
